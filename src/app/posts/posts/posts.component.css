@@ -1,0 +1,14 @@
+
+.posts {
+  max-width: 1024px;
+  margin: auto;
+  overflow-y: hidden;
+}
+.post {
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 20px;
+}
+.pag-controls {
+  text-align: center;
+}

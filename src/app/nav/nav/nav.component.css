@@ -1,0 +1,17 @@
+nav {
+  background: rgb(78, 37, 87);
+  padding: 15px;
+}
+ul {
+  display: flex;
+}
+li {
+  margin: 0 10px;
+}
+li a {
+  color: #fff;
+  font-size: 1.3em;
+}
+li a.active {
+  color: aquamarine;
+}

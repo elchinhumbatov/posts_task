@@ -1,0 +1,11 @@
+<section>
+  <h1>Users</h1>
+  <div id="users">
+    <div class="user" *ngFor="let user of users">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="user">
+      <h5>{{user.name}}</h5>
+      <p>{{user.email}}</p>
+      <a [routerLink]="['/users', user.id]">More Info</a>
+    </div>
+  </div>
+</section>

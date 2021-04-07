@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+li { 
+  list-style: none; 
+}
+h1 {
+  text-align: center;
+}
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font: 1.2em Arial;
+  text-align: center;
+}

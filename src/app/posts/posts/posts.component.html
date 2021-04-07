@@ -1,0 +1,16 @@
+<div class="posts">
+  <h1>Posts</h1>
+  <div class="loader" *ngIf="!posts.length">Loading...</div>
+  <div class="post" *ngFor="let post of posts | paginate: { itemsPerPage: 10, currentPage: page }">
+    <h3>{{post.title}} - {{post.id}}</h3>
+    <p>{{post.body}}</p>
+    <button (click)="showModal(post.id)">View More</button>
+    <button (click)="showComments1(post.id)">View More</button>
+  </div>
+  <pagination-controls 
+    class = "pag-controls" 
+    (pageChange)="page = $event" 
+    nextLabel='' 
+    previousLabel=''></pagination-controls>
+</div>
+<app-modal></app-modal>

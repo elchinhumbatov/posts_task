@@ -1,0 +1,9 @@
+<div id="modal" *ngIf="modalToggle" (click)="closeModal($event)">
+  <div id="modal-body">
+    <div class="loader" *ngIf="!comments.length">Loading...</div>
+    <div *ngFor="let comment of comments; let idx = index">
+      <h4>Comment-{{ idx+1 }} : {{comment.name}}</h4>
+      <p>{{comment.body}}</p>
+    </div>
+  </div>
+</div>
