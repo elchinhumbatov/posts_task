@@ -22,6 +22,7 @@ import { UsersComponent } from './users/users/users.component';
 import { UserComponent } from './user/user/user.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SecondTaskComponent } from './second-task/second-task/second-task.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { environment } from '../environments/environment';
     ModalComponent,
     UsersComponent,
     UserComponent,
-    PostsFilterPipe
+    PostsFilterPipe,
+    SecondTaskComponent
   ],
   imports: [
     BrowserModule,

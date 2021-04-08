@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main/main.component';
 import { PostsComponent } from './posts/posts/posts.component';
+import { SecondTaskComponent } from './second-task/second-task/second-task.component';
 import { UserComponent } from './user/user/user.component';
 import { UsersComponent } from './users/users/users.component';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'posts', component: PostsComponent},
   {path: 'users', component: UsersComponent},
   {path: 'users/:id', component: UserComponent},
+  {path: 'messages', component: SecondTaskComponent},
   {path: '**', redirectTo: ''}
 ];
 

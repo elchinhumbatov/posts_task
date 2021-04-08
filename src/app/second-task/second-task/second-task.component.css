@@ -1,0 +1,24 @@
+p {margin: 0;}
+#sms-wrap>* {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 20px;
+}
+/* #sms-rand {
+
+} */
+#sms-box {
+  height: 300px;
+  overflow: scroll;
+}
+#sms-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.example-form-field {
+  width: 60%;
+}
+button {
+  width: 15%;
+}
