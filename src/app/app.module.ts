@@ -20,6 +20,8 @@ import { MainComponent } from './main/main/main.component';
 import { ModalComponent } from './modal/modal/modal.component';
 import { UsersComponent } from './users/users/users.component';
 import { UserComponent } from './user/user/user.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,13 @@ import { UserComponent } from './user/user/user.component';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
