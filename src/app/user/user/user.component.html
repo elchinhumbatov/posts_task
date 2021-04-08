@@ -1,22 +1,26 @@
-<a routerLink="/users">Back to Users</a>
-<ng-container *ngIf="load; else elseTemplate">
-  <div class="loader">Loading...</div>
-</ng-container>
-<ng-template #elseTemplate>
-  <section>
-    <div id="user-info">
-      <div id="user-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="user">
+<section>
+  <a routerLink="/users">Go Back</a>
+  <ng-container *ngIf="load; else elseTemplate">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <section>
+      <div id="user-info">
+        <div id="user-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="user">
+        </div>
+        <div id="user-data">
+          <h3>Name: {{ user.name }}</h3>
+          <p>Username: {{user.username}}</p>
+          <p>email: {{user.email}}</p>
+          <p>phone: {{user.phone}}</p>
+          <p>website: {{user.website}}</p>
+          <p>address: {{user.address.city}} city {{user.address.street}} str.</p>
+        </div>
       </div>
-      <div id="user-data">
-        <h3>Name: {{ user.name }}</h3>
-        <p>Username: {{user.username}}</p>
-        <p>email: {{user.email}}</p>
-        <p>phone: {{user.phone}}</p>
-        <p>website: {{user.website}}</p>
-        <p>address: {{user.address.city}} city {{user.address.street}} str.</p>
+      <div id="user-posts">
+        <app-posts [userId]="user.id"></app-posts>
       </div>
-    </div>
-    <div id="user-posts"></div>
-  </section>
-</ng-template>
+    </section>
+  </ng-template>
+</section>

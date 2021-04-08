@@ -1,3 +1,6 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,4 +23,10 @@ h1 {
   height: 80vh;
   font: 1.2em Arial;
   text-align: center;
+}
+section {
+  padding: 50px 0;
+}
+mat-spinner {
+  margin: auto;
 }

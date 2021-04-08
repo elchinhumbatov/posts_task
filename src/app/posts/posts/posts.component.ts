@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from 'src/app/modal/modal/modal.component';
 import { MyDataService } from '../../services/my-data.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-posts',
@@ -8,18 +9,33 @@ import { MyDataService } from '../../services/my-data.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  @ViewChild(ModalComponent) modal;
-  posts: [] = [];
+  @Input() userId = 'custom';
+  // @ViewChild(ModalComponent) modal;
+  posts = [];
+  filteredPosts = [];
   page = 1;
-  modalToggle = false;
-  constructor(private myDataService: MyDataService) {}
+  search = '';
+  checked = true;
+  itemsPerPage = 10;
+  constructor(private myDataService: MyDataService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.myDataService.loadPosts().subscribe((response) => {
-      this.posts = response;
+      if (this.userId !== 'custom') {
+        this.posts = response.filter((post) => {
+          this.itemsPerPage = 5;
+          return post.userId === this.userId;
+        });
+      } else {
+        this.posts = response;
+      }
     });
   }
-  showModal(postId): void {
-    this.modal.showModal(postId);
+  openDialog(postId): any {
+    this.dialog.open(ModalComponent, {
+      data: {
+        postId
+      }
+    });
   }
 }

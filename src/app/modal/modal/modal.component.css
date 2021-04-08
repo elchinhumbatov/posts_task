@@ -1,19 +1,7 @@
-#modal {
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(3, 3, 3, .5);
+.comment {
+  margin: 10px;
 }
-#modal-body {
-  padding: 20px 40px;
-  border-radius: 10px;
-  background: rgb(243, 241, 241);
-  box-shadow: 0 0 10px #000;
-  width: 50vw;
+h3 {
+  margin: 0;
+  font: 700 1.2em Arial;
 }

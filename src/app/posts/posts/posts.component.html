@@ -1,16 +1,28 @@
-<div class="posts">
-  <h1>Posts</h1>
-  <div class="loader" *ngIf="!posts.length">Loading...</div>
-  <div class="post" *ngFor="let post of posts | paginate: { itemsPerPage: 10, currentPage: page }">
-    <h3>{{post.title}} - {{post.id}}</h3>
-    <p>{{post.body}}</p>
-    <button (click)="showModal(post.id)">View More</button>
-    <button (click)="showComments1(post.id)">View More</button>
+<section>
+  <div class="posts">
+    <h1>Posts</h1>
+    <!-- <div class="loader" *ngIf="!posts.length">Loading...</div> -->
+    <mat-spinner *ngIf="!posts.length"></mat-spinner>
+    <div id="search">
+      <mat-form-field class="example-full-width">
+        <mat-label>Filter it</mat-label>
+        <input matInput placeholder="Type something" [(ngModel)]="search">
+      </mat-form-field>
+      <mat-checkbox #title [(ngModel)]="checked">Title</mat-checkbox>
+      <mat-checkbox #body>Body</mat-checkbox>
+    </div>
+    <div class="post" *ngFor="let post of posts | 
+      postsFilter: search: title.checked: body.checked |
+      paginate: { itemsPerPage: itemsPerPage, currentPage: page } ">
+      <h3>{{post.title.charAt(0).toUpperCase() + post.title.slice(1)}} - {{post.id}}</h3>
+      <p>{{post.body.charAt(0).toUpperCase() + post.body.slice(1)}}</p>
+      <button mat-raised-button  color="primary" (click)="openDialog(post.id)">Open dialog</button>
+    </div>
+    <pagination-controls 
+      class = "pag-controls" 
+      (pageChange)="page = $event" 
+      nextLabel='' 
+      previousLabel=''></pagination-controls>
   </div>
-  <pagination-controls 
-    class = "pag-controls" 
-    (pageChange)="page = $event" 
-    nextLabel='' 
-    previousLabel=''></pagination-controls>
-</div>
-<app-modal></app-modal>
+  <app-modal *ngIf="false"></app-modal>
+</section>

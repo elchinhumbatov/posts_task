@@ -1,10 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+import { PostsFilterPipe } from './pipes/posts-filter.pipe';
+import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav/nav.component';
 import { PostsComponent } from './posts/posts/posts.component';
 import { MainComponent } from './main/main/main.component';
@@ -20,15 +29,25 @@ import { UserComponent } from './user/user/user.component';
     MainComponent,
     ModalComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    PostsFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

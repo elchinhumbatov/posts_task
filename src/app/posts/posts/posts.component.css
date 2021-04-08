@@ -9,6 +9,15 @@
   margin: 10px;
   padding: 20px;
 }
+.post>* {
+  margin: 10px 0;
+}
 .pag-controls {
   text-align: center;
+}
+#search {
+  text-align: center;
+}
+#search>* {
+  margin: 10px 15px;
 }
