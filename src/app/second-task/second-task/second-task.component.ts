@@ -36,11 +36,11 @@ export class SecondTaskComponent implements OnInit {
       }
     }
   }
-  onChange(id): void {
+  onBlock(id): void {
     const bol = this.messages[id - 1].isChecked;
     this.messages[id - 1].isChecked = !bol;
   }
-  onChangeBack(id): void {
+  onUnblock(id): void {
     const bol = this.messages[id - 1].isChecked;
     this.messages[id - 1].isChecked = !bol;
   }

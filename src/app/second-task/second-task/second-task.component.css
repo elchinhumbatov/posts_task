@@ -1,12 +1,11 @@
 p {margin: 0;}
 #sms-wrap>* {
-  border: 1px solid red;
   padding: 10px;
   margin: 20px;
 }
-/* #sms-rand {
-
-} */
+#sms-rand, #sms-box {
+  border: 1px solid #000;
+}
 #sms-box {
   height: 300px;
   overflow: scroll;

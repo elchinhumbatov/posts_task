@@ -1,22 +1,27 @@
 <section>
   <div class="posts">
     <h1>Posts</h1>
-    <!-- <div class="loader" *ngIf="!posts.length">Loading...</div> -->
-    <mat-spinner *ngIf="!posts.length"></mat-spinner>
     <div id="search">
-      <mat-form-field class="example-full-width">
-        <mat-label>Filter it</mat-label>
-        <input matInput placeholder="Type something" [(ngModel)]="search">
+      <div id="checkboxes">
+        <span>Search for </span>
+        <mat-checkbox #title [(ngModel)]="checked">Title</mat-checkbox>
+        <mat-checkbox #body>Body</mat-checkbox>
+      </div>
+      <mat-form-field class="example-form-field">
+        <mat-label>Filter</mat-label>
+        <input matInput type="text" [(ngModel)]="search" >
+        <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
+          <mat-icon>x</mat-icon>
+        </button>
       </mat-form-field>
-      <mat-checkbox #title [(ngModel)]="checked">Title</mat-checkbox>
-      <mat-checkbox #body>Body</mat-checkbox>
     </div>
+    <mat-spinner *ngIf="!posts.length"></mat-spinner>
     <div class="post" *ngFor="let post of posts | 
       postsFilter: search: title.checked: body.checked |
       paginate: { itemsPerPage: itemsPerPage, currentPage: page } ">
       <h3>{{post.title.charAt(0).toUpperCase() + post.title.slice(1)}} - {{post.id}}</h3>
       <p>{{post.body.charAt(0).toUpperCase() + post.body.slice(1)}}</p>
-      <button mat-raised-button  color="primary" (click)="openDialog(post.id)">Open dialog</button>
+      <button mat-raised-button  color="primary" (click)="openDialog(post.id)">Show Comments</button>
     </div>
     <pagination-controls 
       class = "pag-controls" 

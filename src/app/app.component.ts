@@ -8,7 +8,7 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class AppComponent {
   constructor(updates: SwUpdate) {
-    updates.available.subscribe(event => {
+    updates.available.subscribe(() => {
       updates.activateUpdate().then(() => {
         document.location.reload();
       });
